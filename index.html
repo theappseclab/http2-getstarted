@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme"> 
+
+		<!-- Added Font Awesome CSS for icons -->
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<style type="text/css">
+			.reveal .fa-icon,
+			.reveal [class^="icon-"],
+			.reveal [class*=" icon-"]  {
+  				font-family: 'FontAwesome';
+			}
+		</style>
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/default.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+			<section id="getting-started-with-http2" class="level2">
+<h2>Getting Started With HTTP2</h2>
+<p>March 21st, 2015 <br /><br /> <a href="https://twitter.com/makash">Akash Mahajan</a><br /><br /><br /> <img src="images/theappseclab-logo-small.png" alt="The App Sec Lab" /></p>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="introduction" class="level2">
+<h2>Introduction</h2>
+<blockquote>
+<p>Lets see what we need to know to get started with <code>HTTP2</code></p>
+</blockquote>
+<aside class="notes">
+Will try to get you upto speed quickly on getting started with HTTP2
+</aside>
+
+</section>
+</section>
+<section id="section-1" class="level1">
+<h1></h1>
+<section id="agenda" class="level2">
+<h2>Agenda</h2>
+<ol class="incremental" type="1">
+<li>Demo a web server which is running with HTTP2 and a client that supports it</li>
+<li>Show how to intercept HTTP2 traffic</li>
+<li>Background of HTTP2</li>
+<li>Differences between HTTP1.x and HTTP2</li>
+<li>References and how can you play around with HTTP2</li>
+</ol>
+</section>
+</section>
+<section id="section-2" class="level1">
+<h1></h1>
+<section id="demo-of-http2" class="level2">
+<h2>Demo of HTTP2</h2>
+<ul class="incremental">
+<li>All the instructions to setup the VM will be posted.</li>
+</ul>
+</section>
+<section id="demo-of-twitter" class="level2">
+<h2>Demo of Twitter</h2>
+<ul class="incremental">
+<li>Did you know Twitter already supports and serves HTTP2 if you have a combatible client.</li>
+</ul>
+</section>
+<section id="demo-of-http2-no-tls" class="level2">
+<h2>Demo of HTTP2 no TLS</h2>
+</section>
+<section id="demo-of-http2-with-tls-self-signed-certificate" class="level2">
+<h2>Demo of HTTP2 with TLS (Self Signed Certificate)</h2>
+</section>
+<section id="demo-of-intercepting-http2-traffic" class="level2">
+<h2>Demo of Intercepting HTTP2 Traffic</h2>
+<ul class="incremental">
+<li>Right now you really can't intercept because it is <em>binary</em></li>
+<li>You can see the traffic in Wireshark for now</li>
+<li>No Burp!!</li>
+</ul>
+</section>
+</section>
+<section id="section-3" class="level1">
+<h1></h1>
+<section id="differences-between-http1.1-and-http2" class="level2">
+<h2>Differences between HTTP1.1 and HTTP2</h2>
+</section>
+<section id="http2-is-binary-and-not-textual" class="level2">
+<h2>HTTP2 is binary and not textual</h2>
+<ul class="incremental">
+<li>Binary protocols are more efficient to parse and more compact(less error-prone)</li>
+</ul>
+</section>
+<section id="http2-uses-header-compression" class="level2">
+<h2>HTTP2 uses Header Compression</h2>
+<ul class="incremental">
+<li>Every asset that a client needs to load a complete page, has headers</li>
+</ul>
+</section>
+<section id="allows-servers-to-push-responses" class="level2">
+<h2>Allows servers to <strong>push</strong> responses</h2>
+<ul class="incremental">
+<li>Allows servers to <strong>push</strong> responses proactively into client caches</li>
+<li>Servers need not wait for a slow client to download, parse and realise it needs something else from the server</li>
+</ul>
+</section>
+</section>
+<section id="section-4" class="level1">
+<h1></h1>
+<section id="background-of-http2" class="level2">
+<h2>Background of HTTP2</h2>
+<p>From <a href="http://http2-explained.readthedocs.org/en/latest/src/httptoday.html">HTTP2 Explained</a> by <a href="https://twitter.com/bagder">Daniel Stenberg</a></p>
+</section>
+<section id="main-reasons-for-http2" class="level2">
+<h2>Main Reasons for HTTP2</h2>
+<ul class="incremental">
+<li>In other words <strong>Pain points of HTTP1.1</strong></li>
+</ul>
+</section>
+<section id="limitations-of-http1.1" class="level2">
+<h2>Limitations of HTTP1.1</h2>
+<ul class="incremental">
+<li>Even though HTTP1.0 started out to be a small 60 page specification it grew to become 176 pages in 1999 for HTTP1.1 and now a family of RFCs 7230</li>
+<li>Inadequate use of TCP</li>
+</ul>
+</section>
+<section id="expanding-on-inadequate-use-of-tcp" class="level2">
+<h2>Expanding on inadequate use of TCP</h2>
+<ul class="incremental">
+<li>Modern sites can load upto 100 objects and 1.5 MB of data for their home page</li>
+<li>On an average 37 TCP connections are required to load the home page completely</li>
+</ul>
+</section>
+<section id="latency-issues" class="level2">
+<h2>Latency Issues</h2>
+<ul class="incremental">
+<li>Large percentage of users don't use HTTP Pipelining even after it being present in HTTP1.1</li>
+<li>High latency links(think mobile devices), make it hard to get good and fast web experience inspite of high speed connections</li>
+<li>Video and gaming content requires low latency connections to work</li>
+</ul>
+</section>
+<section id="head-of-line-blocking" class="level2">
+<h2>Head of line blocking</h2>
+<blockquote>
+<p>HTTP Pipelining is a way to send another request already while waiting for the response to a previous request</p>
+</blockquote>
+</section>
+<section id="head-line-blocking-real-world" class="level2">
+<h2>Head line blocking (Real World)</h2>
+<ul align="left">
+<li> Imagine you are getting late for a movie but you want to buy popcorn before you go in </li>
+<li> There are two lines and you need to pick one </li>
+<li> You just don't know if the person in front of you is a quick customer or that annoying one that will take forever before he/she is done </li>
+</ul>
+
+</section>
+<section id="avoiding-head-of-line-blocking" class="level2">
+<h2>Avoiding Head of line blocking</h2>
+<ul class="incremental">
+<li>Picking a line you think will get over quickly</li>
+<li>You might get lucky but once decided you can't easily switch lines!</li>
+</ul>
+</section>
+</section>
+<section id="section-5" class="level1">
+<h1></h1>
+<section id="http2-origin-story" class="level2">
+<h2>HTTP2 Origin Story</h2>
+<figure>
+<img src="images/an_origin_story_is_coming.jpg" />
+</figure>
+</section>
+<section id="ietf-and-httpbis-working-group" class="level2">
+<h2>IETF and HTTPbis Working Group</h2>
+<ul class="incremental">
+<li>Internet Engineering Task Force is an organisation that develops and promoted internet standards</li>
+<li>Within IETF dedicated &quot;working groups&quot; are formed</li>
+<li>HTTPbis working group was formed during summer of 2007 and was meant to update HTTP1.1
+<ul class="incremental">
+<li>bis comes from the Latin adverb for <em>two</em></li>
+<li>This was meant to be a second take on HTTP1.1</li>
+</ul></li>
+</ul>
+</section>
+<section id="http2-started-from-spdy" class="level2">
+<h2>http2 started from SPDY</h2>
+<ul class="incremental">
+<li>SPDY is a protocol developed and spearheaded by Google</li>
+<li>When HTTPbis group started SPDY was a working concept and well proven in the real world</li>
+<li>So HTTP2 draft-00 was basically SPDY/3 draft!</li>
+</ul>
+</section>
+</section>
+<section id="section-6" class="level1">
+<h1></h1>
+<section id="references" class="level2">
+<h2>References</h2>
+<ul align="left">
+<li class="fragment highlight-red">
+Start with the <a href="http://http2.github.io/">Home Page of HTTP2</a>
+</li>
+<li class="fragment highlight-red">
+Focus on the <a href="https://github.com/http2/http2-spec/wiki/Implementations">implementations</a>
+</li>
+<li class="fragment highlight-red">
+Nghttp2 an <a href="https://nghttp2.org/">implementation of HTTP2 in C</a>
+</li>
+<li class="fragment highlight-red">
+HTTP2 <a href="https://http2.github.io/faq/">frequently asked questions</a>
+</li>
+<li class="fragment highlight-red">
+Wireshark <a href="https://wiki.wireshark.org/HTTP2">HTTP2 plugin</a>
+</li>
+<li class="fragment highlight-red">
+Stack Overflow on <a href="http://stackoverflow.com/questions/20116949/using-http2-0-option-with-curl-7-33-0-gives-unsupported-protocol">Curl with HTTP2</a>
+</li>
+<li class="fragment highlight-red">
+curl page on <a href="http://curl.haxx.se/dev/readme-http2.html">http2 explained</a>
+</li>
+</ul>
+
+
+</section>
+</section>
+<section id="section-7" class="level1">
+<h1></h1>
+<section id="qna" class="level2">
+<h2>QnA</h2>
+<ul class="incremental">
+<li><a href="https://twitter.com/makash">Akash Mahajan</a></li>
+<li><script type="text/javascript">
+<!--
+h='&#110;&#x75;&#108;&#108;&#46;&#x63;&#x6f;&#46;&#x69;&#110;';a='&#64;';n='&#x61;&#x6b;&#x61;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x61;&#x6b;&#x61;&#32;&#x61;&#116;&#32;&#110;&#x75;&#108;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#32;&#100;&#x6f;&#116;&#32;&#x69;&#110;</noscript></li>
+</ul>
+</section>
+</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
