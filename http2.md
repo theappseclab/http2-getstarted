@@ -5,8 +5,11 @@
 
 The following commands will allow us to do this
 
-     apt-get install make binutils autoconf  automake autotools-dev libtool pkg-config zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev libjemalloc-dev cython python3.4-dev
+    $ apt-get install make binutils autoconf  automake autotools-dev libtool pkg-config zlib1g-dev libcunit1-dev libssl-dev libxml2-dev libev-dev libevent-dev libjansson-dev libjemalloc-dev cython python3.4-dev
      
+    $ git clone  https://github.com/tatsuhiro-t/nghttp2
+    $ cd nghttp2
+
     $ autoreconf -i
     $ automake
     $ autoconf
